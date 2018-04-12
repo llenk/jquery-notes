@@ -15,11 +15,19 @@ function onReady() {
     //eventssssss
     //the function down there is an anonymous callback function
     $('#clickableButton').on('click', function() {
-        console.log($('#nameInput').val());
-    })
+        $('#nameList').append('<li>' + $('#nameInput').val() + '</li><button class="deleteButton">Delete</button>');
+        
+    });
+    $('#nameList').on('click', '.deleteButton', function() {
+        console.log('Delete button was clicked');
+        $(this.previousElementSibling).remove();
+        $(this).remove();
+
+
+    });
     $('#iWasClicked').on('click', function() {
         console.log('I was clicked');
-    })
+    });
 }
 //jQuery is the same as $, it's a function because it's followed by parenthesis
 //you could write jQuery(document.ready( console.log('ayy')));
